@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Добро пожаловать в кофейню Coffee House!</h1>
+
+<form action="/order" method="post">
+    <input type="text" name="name" placeholder="Введите свое имя:">
+    <select name="drink">
+        <option value="">- Выберите напиток -</option>
+        {% for d in drinks -%}
+        <option value="{{d}}">{{d | capitalize}}</option>
+        {% endfor %}
+    </select>
+    <select name="flavor">
+        <option value="">- Выберите ароматизатор -</option>
+        {% for f in flavors -%}
+        <option value="{{f}}">{{f | capitalize}}</option>
+        {% endfor %}
+    </select>
+    <select name="topping">
+        <option value="">- Выбирите топпинг -</option>
+        {% for t in toppings -%}
+        <option value="{{t}}">{{t | capitalize}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Submit">
+
+</form>
+<img src="/static/img/coffeehouse.jpg" , width="100%">
+Image by <a href="https://in.pinterest.com/pin/brown-coffee-png-transparent-brown-coffee-logo-logo-clipart-brown-coffee-png-image-for-free-download--635992778603962046/">Image by
+    Pinterest</a>
+{% endblock %}
